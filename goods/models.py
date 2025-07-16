@@ -50,3 +50,15 @@ class Products(models.Model):
 
     def __str__(self):
         return f"{self.name} Количество - {self.quantity}"
+
+    def display_id(self):
+        return f"{self.id:05}"
+
+    # сколько будет стоить товар со скидкой
+    # будет отбражать ту цену, по к-рой будет отпущен товар клиенту
+    def sell_price(self):
+        if self.discount:
+            # округляем до второго знака после запятой
+            return round(self.price - self.price * self.discount / 100, 2)
+        # если нет скидки, то нам просто возвращается цена
+        return self.price

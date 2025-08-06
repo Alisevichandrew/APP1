@@ -48,13 +48,13 @@
                 {% if product.image %}
                     <img src="{{ product.image.url }}" class="card-img-top" alt="product.name">
                 {% else %}   
-                    <img src="{% static "deps/images/Not found image.png"%}" class="card-img-top" alt="...">
+                    <img src="{% static "deps/images/Not found image.png" %}" class="card-img-top" alt="...">
                 {% endif %}
                 <div class="card-body">
                     <a href="{% url "catalog:product" product.slug %}">
                         <p class="card-title">{{ product.name }}</p>
                     </a>
-                    <p class="card-text">{{ products.description|truncatechars:35 }}</p>
+                    <p class="card-text">{{ product.description|truncatechars:35 }}</p>
                     <p class="product_id">id: {{ product.display_id }} </p>
                     <div class="d-flex justify-content-between">
 
